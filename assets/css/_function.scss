@@ -1,0 +1,9 @@
+$fontSize: 16;
+
+@function rem($val) {
+    @return calc($val / $fontSize) + 0rem;
+}
+
+@function em($pixels, $context: $fontSize) {
+    @return #{calc($pixels/$context)}em;
+}

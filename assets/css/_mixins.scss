@@ -1,0 +1,68 @@
+@use "sass:math";
+@mixin button($bg, $c, $p, $br, $lh, $fs, $fw){
+    background: $bg;
+    color: $c;
+    font-size: $fs;
+    font-weight: $fw;
+    line-height: $lh;
+    padding: $p;
+    border: none;
+    border-radius: $br;
+    outline: none;
+}
+
+@mixin h1($fs, $fw, $lh){
+    color: white;
+    font-size: $fs;
+    font-weight: $fw;
+    line-height: $lh;
+}
+
+@mixin text($c, $fs, $fw, $lh){
+    color: $c;
+    font-size: $fs;
+
+    @if $fw {
+        font-weight: $fw;
+    } @else {
+        font-weight: 400;
+    } 
+    @if $lh {
+        line-height: $lh;
+    } @else {
+        line-height: 100%;
+    }
+}
+
+@mixin transform($lr, $tb, $time){
+    transform: translate($lr, $tb);
+    animation: transformAnim $time ease-in-out both;
+
+    @keyframes transformAnim {
+        from {transform: translate($lr, $tb);}
+        to {transform: translate(0, 0);}
+    }
+}
+
+@mixin link-hover($c){
+    &:hover{
+        color: $c;
+    }
+}
+
+@mixin flex($fd, $ai, $jc, $g){
+    display: flex;
+    
+    @if $fd {
+        flex-direction: $fd;
+    }
+    @if $ai {
+        align-items: $ai;
+    }
+    @if $jc {
+        justify-content: $jc;
+    }
+    @if $g {
+        gap: $g;
+    }
+}
